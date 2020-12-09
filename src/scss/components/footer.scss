@@ -1,0 +1,34 @@
+/*
+|--------------------------------------------------
+| Footer
+|--------------------------------------------------
+*/
+footer {
+	
+}
+.foot-logo {
+	width: 100%;
+	height: 250px;
+	background-image: url("/wp-content/uploads/2020/11/Logo-H.svg");
+	background-position: center center;
+	background-size: 40% auto;
+	background-repeat: no-repeat;
+}
+.foot-content {
+	padding: 50px 0 0 40px;
+}
+.foot-content h4 {
+	font-size: 28px;
+	line-height: 30px;
+	font-weight: 700;
+	color: #827553;
+	font-family: bebas-neue-pro, sans-serif;
+}
+.foot-content a:hover {
+	color: #6c8892;
+	-webkit-font-smoothing: antialiased;
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out; 
+	-o-transition: all 0.3s ease-in-out; 
+	transition: all 0.3s ease-in-out;
+}

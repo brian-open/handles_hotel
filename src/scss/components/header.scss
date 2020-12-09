@@ -1,0 +1,294 @@
+/*
+|--------------------------------------------------
+| Header
+|--------------------------------------------------
+*/
+
+
+header {
+	padding: 20px 0;
+  	z-index: 999;
+	position: absolute;
+  	width: 100%;
+  	height: 500px;
+  	background: rgb(34,34,34);
+	background: -moz-linear-gradient(180deg, rgba(34,34,34,1) 6%, rgba(34,34,34,0) 100%);
+	background: -webkit-linear-gradient(180deg, rgba(34,34,34,1) 6%, rgba(34,34,34,0) 100%);
+	background: linear-gradient(180deg, rgba(34,34,34,1) 6%, rgba(34,34,34,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#222222",endColorstr="#222222",GradientType=1);
+}
+
+.logo {
+	position: absolute;
+	left: 50px;
+	top: 30px;
+	font-weight: 700;
+	font-size: 24px;
+	color: #ffffff;
+	text-indent: -999999px;
+}
+
+.logo:after {
+	z-index: 999999;
+	content: '';
+	position: absolute;
+	left: 0px;
+	width: 300px;
+	height: 60px;
+	background-image: url("/wp-content/uploads/2020/11/Handels-logo.svg");
+	background-position: center center;
+	background-size: 100% auto;
+}
+.logo-white {
+	position: absolute;
+	left: 50px;
+	top: 30px;
+	font-weight: 700;
+	font-size: 24px;
+	color: #ffffff;
+	text-indent: -999999px;
+}
+.logo-white:after {
+	z-index: 9999999999999;
+	content: '';
+	position: absolute;
+	left: 0px;
+	width: 300px;
+	height: 60px;
+	background-image: url("/wp-content/uploads/2020/11/Handels-logo-white.svg");
+	background-position: center center;
+	background-size: 100% auto;
+}
+.header-block-home {
+	position: relative;
+}
+.header-block-home:after {
+	content: "";
+	position: absolute;
+	bottom: -125px;
+	left: -150px;
+	width: 250px;
+	height: 250px;
+	background-color: #827553;
+	transform: rotate(45deg);
+}
+.header-img {
+	width: 100%;
+	height: auto;
+}
+.header-content {
+  	z-index: 9999;
+	position: absolute;
+	left: 15%;
+	top: 35%;
+}
+.header-text {
+	max-width: 450px;
+}
+
+.header-text h2 {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.header-text p {
+  color: #eeebeb;
+}
+.small_text {
+	font-size: 20px;
+	font-weight: 300;
+}
+
+
+/* ---------------------------------------------- */
+/*  NAV, HAMBURGER AND MODAL MENU */
+/* ---------------------------------------------- */
+
+
+.mobile-modal-menu {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 0px;
+	height: 100%;
+	background-color: #827553;
+	z-index: 99999;
+	overflow: hidden;
+	-webkit-transition: width 0.5s ease-in-out;
+	-moz-transition: width 0.5s ease-in-out;
+	-o-transition: width 0.5s ease-in-out;
+	-ms-transition: width 0.5s ease-in-out;
+	transition: width 0.5s ease-in-out;
+}
+.mobile-modal-menu.is-active{
+	width: 100%;
+	-webkit-transition: width 0.5s ease-in-out;
+	-moz-transition: width 0.5s ease-in-out;
+	-o-transition: width 0.5s ease-in-out;
+	-ms-transition: width 0.5s ease-in-out;
+	transition: width 0.5s ease-in-out;
+}
+
+.mobile-modal-menu .mobile-nav{
+	padding: 0 25%;
+}
+.modal-wrapper {
+	position: fixed;
+	top: 0px;
+	height: 100vh;
+	left: 0px;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.70);
+	z-index: 99999;
+}
+.modal-content {
+	padding: 70px 50px;
+	position: relative;
+}
+.shape-left {
+	position: absolute;
+	left: 50px;
+	bottom: 50px;
+	width: 180px;
+	height: 180px;
+	background-image: url("/wp-content/uploads/2020/11/shape1.svg");
+	background-position: center center;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	opacity: 0.5;
+}
+.shape-right {
+	position: absolute;
+	right: 50px;
+	bottom: 50px;
+	width: 180px;
+	height: 180px;
+	background-image: url("/wp-content/uploads/2020/11/shape1.svg");
+	background-position: center center;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	opacity: 0.5;
+	transform: scaleX(-1);
+}
+.shape-left-feature {
+	position: absolute;
+	right: 15px;
+	top: -40px;
+	width: 180px;
+	height: 180px;
+	background-image: url("/wp-content/uploads/2020/11/shape2.svg");
+	background-position: center center;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+.shape-right-feature {
+	position: absolute;
+	left: 15px;
+	top: -40px;
+	width: 180px;
+	height: 180px;
+	background-image: url("/wp-content/uploads/2020/11/shape2.svg");
+	background-position: center center;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	transform: scaleX(-1);
+}
+.button-close {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+img.logo {
+	width: 185px;
+	display: block;
+}
+.burger-block {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 200px;
+	height: 200px;
+	z-index: 99999;
+}
+.burger-block:after {
+	content: "";
+	position: fixed;
+	top: -180px;
+	right: -180px;
+	width: 300px;
+	height: 300px;
+	background-color: #827553;
+	transform: rotate(45deg);
+}
+.hamburger {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	background-color: transparent;
+	width: 70px;
+	height: 70px;
+	z-index: 99999;
+}
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    background-color: #ffffff;
+}
+.hamburger-box {
+	top: 5px;
+}
+
+.sticky .hamburger-inner, .sticky .hamburger-inner::before, .sticky .hamburger-inner::after {
+    background-color: #ffffff;
+}
+.sticky.is-active .hamburger-inner, .sticky.is-active .hamburger-inner::before, .sticky.is-active .hamburger-inner::after {
+    background-color: #ffffff;
+}
+
+
+
+/* ---------------------------------------------- */
+/*  HOME BANNER */
+/* ---------------------------------------------- */
+
+
+.home-banner {
+	min-height: 700px;
+	background-size: cover;
+	background-position: center center;
+}
+.banner-text {
+	position: absolute;
+	z-index: 999;
+	top: 300px;
+	color: #ffffff;
+	max-width: 700px;
+}
+.banner-text h1 {
+	font-weight: 700;
+	color: #ffffff;
+}
+
+/* ---------------------------------------------- */
+/*  BOOKING WIDGETS */
+/* ---------------------------------------------- */
+
+.book-now-widget {
+	margin-top: 30px;
+}
+.book-now-widget span {
+	display: inline-block;
+	padding: 10px 20px;
+	margin-right: 10px;
+	font-size: 20px;
+	font-weight: 700;
+	color: #6c9ca6;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: bebas-neue-pro, sans-serif;
+	background-color: #ffffff;
+	box-shadow: 5px 5px 15px black;
+}
+.book-now-widget span:nth-last-child(1) {
+	color: #ffffff;
+	background-color: #6c9ca6;
+}
+
+

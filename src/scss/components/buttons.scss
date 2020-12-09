@@ -1,0 +1,104 @@
+/*
+|--------------------------------------------------
+| Buttons
+|--------------------------------------------------
+*/
+.call-us a {
+	width: 35px;
+	height: 35px;
+	text-indent: -999999px;
+	display: block;
+	background-image: url("/wp-content/uploads/2020/11/call-us.svg");
+	background-position: center center;
+	background-size: 90% auto;
+	background-repeat: no-repeat;
+}
+.find-us a {
+	width: 35px;
+	height: 35px;
+	text-indent: -999999px;
+	display: block;
+	background-image: url("/wp-content/uploads/2020/11/find-us.svg");
+	background-position: center center;
+	background-size: 90% auto;
+	background-repeat: no-repeat;
+}
+.book-now a {
+	width: auto;
+	height: 35px;
+	display: block;
+	padding: 0 20px;
+}
+
+.call-us {
+	opacity: 0.7;
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out; 
+	-o-transition: all 0.3s ease-in-out; 
+	transition: all 0.3s ease-in-out;
+}
+.find-us {
+	opacity: 0.7;
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out; 
+	-o-transition: all 0.3s ease-in-out; 
+	transition: all 0.3s ease-in-out;
+}
+.book-now {
+	opacity: 0.7;
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out; 
+	-o-transition: all 0.3s ease-in-out; 
+	transition: all 0.3s ease-in-out;
+}
+.call-us:hover {
+	opacity: 1;
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out; 
+	-o-transition: all 0.3s ease-in-out; 
+	transition: all 0.3s ease-in-out;
+}
+.find-us:hover {
+	opacity: 1;
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out; 
+	-o-transition: all 0.3s ease-in-out; 
+	transition: all 0.3s ease-in-out;
+}
+.book-now:hover {
+	opacity: 1;
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out; 
+	-o-transition: all 0.3s ease-in-out; 
+	transition: all 0.3s ease-in-out;
+}
+.button-white {
+	width: 60px;
+	height: 60px;
+	display: block;
+	text-indent: -999999px;
+	background-image: url("/wp-content/uploads/2020/11/button-arrow-02.svg");
+	background-position: center center;
+	background-size: 90% auto;
+	background-repeat: no-repeat;
+}
+.button-gold {
+	width: 60px;
+	height: 60px;
+	display: block;
+	text-indent: -999999px;
+	background-image: url("/wp-content/uploads/2020/11/button-arrow-01.svg");
+	background-position: center center;
+	background-size: 90% auto;
+	background-repeat: no-repeat;
+}
+.button-grey {
+	width: 60px;
+	height: 60px;
+	display: block;
+	text-indent: -999999px;
+	background-image: url("/wp-content/uploads/2020/11/button-arrow-03.svg");
+	background-position: center center;
+	background-size: 90% auto;
+	background-repeat: no-repeat;
+}
