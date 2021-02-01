@@ -58,12 +58,16 @@ ul {
 }
 .pad-block-1 {
 	margin: 50px auto;
+	overflow: hidden;
 }
 .relative {
 	position: relative;
 }
 .centered {
 	text-align: center;
+}
+.column:last-child:not(:first-child), .columns:last-child:not(:first-child) {
+	float: left;
 }
 
 /*
@@ -99,7 +103,13 @@ nav {
         font-weight:300;
         margin-bottom:30px;
         line-height:56px;
-    }    
+    }
+    li {
+	    margin-left: 20px;
+    }
+}
+.qlwapp-text {
+	display: none !important; 
 }
 
 /*
@@ -108,11 +118,18 @@ nav {
 |--------------------------------------------------
 */
 
+.pad-block {
+	padding: 0px 100px 0px 100px;
+}
 .home-intro-block {
-	padding: 100px 100px;
+	padding: 100px 100px 50px 100px;
 }
 .home-intro-block-title {
-	padding-left: 0%;
+	padding-left: 50px;
+}
+.intro-img {
+	padding-right: 30px;
+	padding-top: 40px;
 }
 .home-intro-block h2 {
 	font-size: 50px;
@@ -125,7 +142,7 @@ nav {
 	margin: 0;
 }
 .pink-back.feature {
-	margin: 40px 0;
+	// margin: 40px 0;
 }
 .pink-back.feature h3 {
 	font-size: 50px;
@@ -136,9 +153,13 @@ nav {
 	font-family: bebas-neue-pro, sans-serif;
 	padding: 0;
 	margin: 0 0 30px 0;
+	@include for-tablet-portrait {
+		font-size: 40px;
+		line-height: 36px;
+	}
 }
 .grey-back.feature {
-	margin: 40px 0;
+	// margin: 40px 0;
 }
 .grey-back.feature h3 {
 	font-size: 50px;
@@ -149,6 +170,10 @@ nav {
 	font-family: bebas-neue-pro, sans-serif;
 	padding: 0;
 	margin: 0 0 30px 0;
+	@include for-tablet-portrait {
+		font-size: 40px;
+		line-height: 36px;
+	}
 }
 .pink-back.feature p {
 	color: #333333;
@@ -164,6 +189,19 @@ nav {
 }
 .grey-back .feature-content {
 	padding: 20% 30% 0px 50px;
+}
+.feature-content ul {
+	list-style: disc;
+}
+.feature-content li {
+	margin: 0;
+	padding: 0;
+    font-family: haboro-soft, sans-serif;
+    font-size: 17px;
+    line-height: 23px;
+    color: #ffffff;
+    font-style: normal;
+    margin-left: 20px;
 }
 .amenities-intro {
 	text-align: center;
@@ -210,14 +248,15 @@ ul.amenities-icons ul {
 	margin: 0;
 }
 ul.amenities-icons li li {
-	margin-top: 15px;
-	display: block;
+	text-align: center;
+	margin-top: 8px;
+	left: -75px;
+	width: 200px;
+	display: none;
 	position: absolute;
-	left: -130px;
-	width: 300px;
 	padding: 20px 10px 10px 10px;
 	height: auto;
-	background-color: #ffffff;
+	color: #ffffff;
 	line-height: 2px;
 	opacity: 0;
 	-webkit-transition: all 0.3s ease-in-out; 
@@ -226,17 +265,18 @@ ul.amenities-icons li li {
 	transition: all 0.3s ease-in-out;
 }
 ul.amenities-icons li:hover li {
+	display: block;
 	opacity: 1;
 	-webkit-transition: all 0.3s ease-in-out; 
 	-moz-transition: all 0.3s ease-in-out; 
 	-o-transition: all 0.3s ease-in-out; 
 	transition: all 0.3s ease-in-out;
-	box-shadow: 5px 5px 20px rgba(33, 33, 33, 0.70);
 }
 ul.amenities-icons li li span.title {
+	text-align: center;
 	font-size: 20px;
 	font-weight: 700;
-	color: #444444;
+	color: #ffffff;
 	text-transform: uppercase;
 	font-family: bebas-neue-pro, sans-serif;
 	margin-bottom: 10px;
@@ -268,10 +308,23 @@ ul.amenities-icons li li span.body {
 	margin: 60px 0;
 }
 .swiper-pagination {
-    top: -100px;
+    top: -50px;
     left: 50%;
-    margin-left: -200px;
+    margin-left: -230px;
+    position: absolute;
 }
+.swiper-pagination-icon {
+	width: 100px;
+	height: 150px;
+	position: absolute;
+	left: 200px;
+	top: -150px;
+	background-image: url("/wp-content/uploads/2021/01/hotel-icon.svg");
+	background-position: center center;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+
 .swiper-pagination-bullet {
 	background-color: #b7f3ff;
 	width: 12px;
@@ -307,14 +360,19 @@ ul.amenities-icons li li span.body {
 
 .swiper-container {
     overflow: visible;
-    margin-top: 220px;
+    margin-top: 160px;
     margin-bottom: 120px;
 }
 .swiper-container-inner {
-	overflow: hidden;
+    overflow: hidden;
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+	margin-top: 70px;
 }
 .slide-content {
-	padding: 60px 60px 0 60px;
+	padding: 30px 60px 0 60px;
 }
 .slide-content h4 {
 	font-size: 40px;
@@ -327,15 +385,15 @@ ul.amenities-icons li li span.body {
 .slide-content span {
 	font-size: 15px;
 	color: #414042;
-	padding-left: 30px;
+	padding-left: 40px;
 	position: relative;
 	margin: 20px 0;
 	display: block;
 }
 .slide-content span:before {
 	content: '';
-	width: 20px;
-	height: 25px;
+	width: 30px;
+	height: 40px;
 	position: absolute;
 	left: 0px;
 	background-image: url("/wp-content/uploads/2020/11/walk-dark.svg");
@@ -376,6 +434,16 @@ ul.amenities-icons li li span.body {
 	align-items: center;
     justify-content: center;
 }
+.distance {
+	color: #aeaeae;
+	position: absolute;
+	top: -65px;
+	left: 50%;
+	margin-left: -20px;
+	z-index: 999999;
+	text-align: center;
+}
+
 
 /*
 |--------------------------------------------------
@@ -409,13 +477,6 @@ ul.amenities-icons li li span.body {
 	text-align: center;
 }
 
-
-/*
-|--------------------------------------------------
-| NEWS BLOCK
-|--------------------------------------------------
-*/
-
 .location h3 {
 	text-align: center;
 	font-size: 40px;
@@ -438,14 +499,48 @@ ul.amenities-icons li li span.body {
 	font-size: 24px;
 	line-height: 30px;
 	font-weight: 700;
-	color: #827553;
+	color: #ffffff;
 	text-transform: uppercase;
 	font-family: bebas-neue-pro, sans-serif;
+}
+.location a:hover {
+	color: #cccccc;
 }
 .map {
 	margin: 80px auto;
 }
+.post-distance {
+	position: relative;
+	padding-top: 40px;
+}
+.post-distance span {
+	padding-left: 40px;
+	display: block;
+}
+.post-distance:before {
+	content: '';
+	width: 30px;
+	height: 40px;
+	position: absolute;
+	background-image: url("/wp-content/uploads/2020/11/walk-dark.svg");
+	background-position: center center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
 
+
+.max-width-news {
+    max-width:1200px;
+    display: block;
+    margin:0 auto;
+    padding-top: 150px;
+}
+.news-wrap {
+	padding: 0 20px 60px 20px;
+}
+.news-wrap img {
+	padding-bottom: 15px;
+}
 
 
 /*
@@ -456,7 +551,7 @@ ul.amenities-icons li li span.body {
 
 
 .border_2col {
-	margin: 100px 0;
+	margin: 50px 0;
 }
 .border_2col-pad {
 	padding: 50px;
@@ -537,7 +632,6 @@ ul.amenities-icons li li span.body {
 	font-family: bebas-neue-pro, sans-serif;
 }
 .contact-content {
-	padding: 20px 0 60px;
 }
 .contact-content a:hover {
 	opacity: 0.5;
@@ -545,5 +639,21 @@ ul.amenities-icons li li span.body {
 	-moz-transition: all 0.3s ease-in-out; 
 	-o-transition: all 0.3s ease-in-out; 
 	transition: all 0.3s ease-in-out;
+}
+.contact-form h3 {
+	color: #ffffff;
+}
+.cli-wrapper {
+	text-align: center;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+.popmake-content p {
+	color: #ffffff !important;
+}
+.popmake-content h2 {
+	padding: 0;
+	margin: 0;
+	line-height: 40px;
 }
 

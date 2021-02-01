@@ -13,7 +13,6 @@
 	<?php bloginfo('name'); // show the blog name, from settings ?> | 
 	<?php is_front_page() ? bloginfo('description') : wp_title(''); // if we're on the home page, show the description, from the site's settings - otherwise, show the title of the post or page ?>
 </title>
-
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php // We are loading our theme directory style.css by queuing scripts in our functions.php file, 
@@ -28,7 +27,23 @@
 
 <link rel="stylesheet" href="https://use.typekit.net/duk7skg.css">
 
+
+
+
+
 <?php wp_head(); ?>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8RJVVLP6L4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8RJVVLP6L4');
+</script>
+
 
 </head>
 
@@ -71,7 +86,7 @@
 	</button>
 </div>
 
-<header>
+<header id="top">
 	<div class="row">
 			
 		<a class="logo" href="<?php echo get_site_url(); ?>">HANDEL'S HOTEL</a>

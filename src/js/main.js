@@ -3,7 +3,7 @@ import "../scss/main.scss";
 import Swiper from 'swiper';
 
 import $ from "jquery";
-
+import '../../node_modules/jquery-ui-dist/jquery-ui.min.js';
 import { MatchHeight } from 'js-match-height';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 var mySwiper = new Swiper('.swiper-container-inner', {
     	speed: 400,
         autoplay: {
-            delay: 2500,
+            delay: 550000000000,
             disableOnInteraction: true,
         },
         slidersPerView: 1,
@@ -76,9 +76,20 @@ var mySwiper = new Swiper('.swiper-container-inner', {
     | Layout
     |--------------------------------------------------
     */
-    
-	const matchHeight = new MatchHeight('.match-block-1');
+
+	// const matchHeight = new MatchHeight('.match-block-1');
 	const matchHeightblock2 = new MatchHeight('.match-block-2');
 
+    /*
+    |--------------------------------------------------
+    | Datepicker
+    |--------------------------------------------------
+    */
+	$( function() {
+		$( "#datepicker-arv" ).datepicker();
+		$( "#datepicker-dpt" ).datepicker();
+		$( "#datepicker-arv" ).datepicker( "option", "dateFormat", "mm-dd-yy" );
+		$( "#datepicker-dpt" ).datepicker( "option", "dateFormat", "mm-dd-yy" );
+	});
 
 });

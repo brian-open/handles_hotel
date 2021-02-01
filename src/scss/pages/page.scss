@@ -4,7 +4,54 @@
 |--------------------------------------------------
 */
 
-
+.flex-row {
+  display: flex;
+  @include for-phone-only {
+    display: block;
+  }
+  .space-top {
+    height:50px;
+    background:#fff;
+    display: block;
+    width:100%;
+    @include for-phone-only {
+      display: none;;
+    }
+  }
+  .space-bottom {
+    height:50px;
+    background:#fff;
+    display: block;
+    width:100%; 
+    @include for-phone-only {
+      display: none;;
+    }
+  }
+  .feature-content {
+    padding:0px;
+    position: relative;
+    display: block;
+    height:100%;
+    .wrap {
+      padding: 20% 50px 0px 30%;
+      @include for-tab-land {
+        padding: 10% 50px 0px 20%;
+      }
+      @include for-tablet-portrait {
+        padding: 15% 40px 0px 15%;
+      }
+      &.on-right {
+        padding: 20% 30% 0px 50px;
+        @include for-tab-land {
+          padding: 10% 20% 0px 50px;
+        }
+        @include for-tablet-portrait {
+          padding: 10% 10% 0px 40px;
+        }
+      }
+    }
+  }
+}
 @supports not (mix-blend-mode: multiply) {
   .image {
 

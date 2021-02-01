@@ -38,6 +38,7 @@ header {
 	background-image: url("/wp-content/uploads/2020/11/Handels-logo.svg");
 	background-position: center center;
 	background-size: 100% auto;
+	background-repeat: no-repeat;
 }
 .logo-white {
 	position: absolute;
@@ -89,6 +90,7 @@ header {
 .header-text h2 {
   color: #ffffff;
   text-transform: uppercase;
+  line-height: 38px;
 }
 .header-text p {
   color: #eeebeb;
@@ -172,7 +174,7 @@ header {
 .shape-left-feature {
 	position: absolute;
 	right: 15px;
-	top: -40px;
+	top: 0px;
 	width: 180px;
 	height: 180px;
 	background-image: url("/wp-content/uploads/2020/11/shape2.svg");
@@ -183,7 +185,7 @@ header {
 .shape-right-feature {
 	position: absolute;
 	left: 15px;
-	top: -40px;
+	top: 0px;
 	width: 180px;
 	height: 180px;
 	background-image: url("/wp-content/uploads/2020/11/shape2.svg");
@@ -266,29 +268,5 @@ img.logo {
 	color: #ffffff;
 }
 
-/* ---------------------------------------------- */
-/*  BOOKING WIDGETS */
-/* ---------------------------------------------- */
-
-.book-now-widget {
-	margin-top: 30px;
-}
-.book-now-widget span {
-	display: inline-block;
-	padding: 10px 20px;
-	margin-right: 10px;
-	font-size: 20px;
-	font-weight: 700;
-	color: #6c9ca6;
-	text-align: center;
-	text-transform: uppercase;
-	font-family: bebas-neue-pro, sans-serif;
-	background-color: #ffffff;
-	box-shadow: 5px 5px 15px black;
-}
-.book-now-widget span:nth-last-child(1) {
-	color: #ffffff;
-	background-color: #6c9ca6;
-}
 
 

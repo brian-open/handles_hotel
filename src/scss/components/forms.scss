@@ -1,5 +1,94 @@
 /*
 |--------------------------------------------------
+| Booking Widget
+|--------------------------------------------------
+*/
+
+.book-now-widget {
+	margin-top: 30px;
+	max-width: 500px;
+}
+.book-now-widget input {
+	display: inline-block;
+	padding: 10px;
+	margin-right: 10px;
+	font-size: 20px;
+	font-weight: 700;
+	color: #6c9ca6;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: bebas-neue-pro, sans-serif;
+	background-color: #ffffff;
+	box-shadow: 5px 5px 15px black;
+	width: 100px;
+}
+.book-now-widget select {
+	display: inline-block;
+	padding-left: 10px;
+	margin-right: 10px;
+	font-size: 20px;
+	font-weight: 700;
+	color: #6c9ca6;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: bebas-neue-pro, sans-serif;
+	background-color: #ffffff;
+	box-shadow: 5px 5px 15px black;
+	width: 100px;
+}
+.book-now-widget button {
+	display: inline-block;
+	padding: 10px 20px;
+	margin-right: 10px;
+	font-size: 20px;
+	font-weight: 700;
+	color: #ffffff;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: bebas-neue-pro, sans-serif;
+	background-color: #6c9ca6;
+	box-shadow: 5px 5px 15px black;
+	width: 180px;
+}
+.book-now-widget input:nth-last-child(1) {
+	color: #ffffff;
+	background-color: #6c9ca6;
+}
+#ui-datepicker-div {
+	display: none;
+}
+.ui-datepicker {
+	background-color: #ffffff;
+	padding: 10px;
+}
+.ui-datepicker-calendar th {
+	padding: 0 5px;
+	border: 1px solid #eeeeee;
+	background-color: #eeeeee;
+	font-size: 14px;
+}
+.ui-datepicker-calendar td {
+	padding: 0 5px;
+	border: 1px solid #eeeeee;
+	font-size: 14px;
+	text-align: center;
+}
+.ui-datepicker-next {
+	float: right;
+	text-align: center;
+}
+.ui-datepicker-title {
+	font-size: 20px;
+	display: block;
+	padding: 10px;
+	text-align: center;
+}
+.ui-datepicker-today {
+	background-color: #c5eaff;
+}
+
+/*
+|--------------------------------------------------
 | Forms
 |--------------------------------------------------
 */
@@ -20,7 +109,7 @@
 }
 
 .nf-field-element .ninja-forms-field.nf-element {
-    background-color: #b3a583;
+    background-color: #666666;
     border-bottom: 1px solid #ffffff;
 }
 
@@ -41,6 +130,9 @@
 }
 .nf-form-fields-required {
     color: #fff;
+}
+.nf-before-form-content {
+	display: none !important;
 }
 
 /*

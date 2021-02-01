@@ -14,11 +14,23 @@ get_header(''); ?>
 <section class="header-block-home">
 	
 	<?php
-		$imageArray = get_field('header_image');
-		$imageAlt = $imageArray['alt'];
-		$imageTitle = $imageArray['title'];
-		$imageURL = $imageArray['url'];
-		$imageThumbURL = $imageArray['sizes']['large']; ?>	
+        if(wp_is_mobile()) // On mobile
+        {
+			$imageArray = get_field('header_image_mobile');
+			$imageAlt = $imageArray['alt'];
+			$imageTitle = $imageArray['title'];
+			$imageURL = $imageArray['url'];
+			$imageThumbURL = $imageArray['sizes']['large']; 
+        }
+        else
+        {
+			$imageArray = get_field('header_image');
+			$imageAlt = $imageArray['alt'];
+			$imageTitle = $imageArray['title'];
+			$imageURL = $imageArray['url'];
+			$imageThumbURL = $imageArray['sizes']['large']; 
+        }
+		?>	
 
 		<img class="header-img" src="<?php echo $imageThumbURL;?>" alt="<?php echo $imageAlt;?>" />	
 		
@@ -26,14 +38,28 @@ get_header(''); ?>
 			
 			<div class="header-text">
 				<h2 class="title_text"><?php the_field('title'); ?></h2>
-				<p class="small_text"><?php the_field('body_text'); ?></p>
+				<div class="small_text"><?php the_field('body_text'); ?></div>
 			</div>
 			
 			<div class="book-now-widget">
-				<span>5 Oct</span>
-				<span>6 Oct</span>
-				<span>2 Guest</span>
-				<span>Check Availability</span>
+				<form data-guestline-form><input type="hidden" name="hotel-id" value="HANDELS" />
+					<input type="text" id="datepicker-arv" name="arrival" autocomplete="off" placeholder="Arrive"><input type="text" id="datepicker-dpt" name="departure" autocomplete="off" placeholder="Depart">
+					<select class="adults" name="adults" placeholder="Adults">
+						<option value="0-Adult">0 Adult</option>
+						<option value="1-Adult">1 Adult</option>
+						<option value="2-Adults">2 Adults</option>
+						<option value="3-Adults">3 Adults</option>
+						<option value="4-Adults">4 Adults</option>
+					</select>
+					<select class="children" name="children" placeholder="Children">
+						<option value="0-Child">0 Child</option>
+						<option value="1-Child">1 Child</option>
+						<option value="2-Child">2 Children</option>
+						<option value="3-Child">3 Children</option>
+						<option value="4-Child">4 Children</option>
+					</select>
+					<button class="book-button" type="submit">Check Availability</button>
+				</form>
 			</div>
 		
 		</div>
@@ -67,6 +93,7 @@ get_header(''); ?>
 	</div>
 
 
+
 <!-- ================================================================================================================ -->
 <!-- FEATURE BLOCKS HOME -->
 <!-- ================================================================================================================ -->
@@ -80,32 +107,50 @@ get_header(''); ?>
 
 	<div class="row">
 		<div class="max-width pad-block-1">
-		<div class="small-12 medium-7 columns no-pad match-block-1 feature">
-		<?php
-			$imageArray = get_sub_field('image');
-			$imageAlt = $imageArray['alt'];
-			$imageTitle = $imageArray['title'];
-			$imageURL = $imageArray['url'];
-			$imageThumbURL = $imageArray['sizes']['large']; ?>	
-			<img class="feature-img" src="<?php echo $imageThumbURL;?>" alt="<?php echo $imageAlt;?>" />	
-        </div>
-		<div class="small-12 medium-5 columns grey-back no-pad match-block-1 feature">
-		<div class="shape-left-feature"></div>
-		<div class="feature-content">
-        <h3><?php the_sub_field('title'); ?></h3>
-        <p><?php the_sub_field('description'); ?></p>
-            
-	    <?php 
-			$link = get_sub_field('link');
-			if( $link ): 
-			$link_url = $link['url'];
-			$link_title = $link['title'];
-			$link_target = $link['target'] ? $link['target'] : '_self';
-    	?>
-		<a class="button-white" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-		<?php endif; ?>
-        </div>
-        </div>
+		<!-- ./Flex Row -->
+		<div class="flex-row">
+			<?php if ( wp_is_mobile() ): ?>
+			<div class="small-12 medium-6 large-7 columns no-pad feature">
+			<?php else: ?>
+			<div class="small-12 medium-6 large-7 columns no-pad match-block-1 feature">
+			<?php endif; ?>
+
+			<?php
+				$imageArray = get_sub_field('image');
+				$imageAlt = $imageArray['alt'];
+				$imageTitle = $imageArray['title'];
+				$imageURL = $imageArray['url'];
+				$imageThumbURL = $imageArray['sizes']['large']; ?>	
+				<img class="feature-img" src="<?php echo $imageThumbURL;?>" alt="<?php echo $imageAlt;?>" />
+				<div class="space-bottom"></div>	
+			</div>
+				
+			<?php if ( wp_is_mobile() ): ?>
+			<div class="small-12 medium-6 large-5 columns grey-back no-pad feature">
+			<?php else: ?>
+			<div class="small-12 medium-6 large-5 columns grey-back no-pad match-block-1 feature">
+			<?php endif; ?>
+			<div class="space-top"></div>	
+			<div class="shape-left-feature"></div>
+			<div class="feature-content">
+				<div class="wrap on-right">
+				<h3><?php the_sub_field('title'); ?></h3>
+				<p><?php the_sub_field('description'); ?></p>
+					
+				<?php 
+					$link = get_sub_field('link');
+					if( $link ): 
+					$link_url = $link['url'];
+					$link_title = $link['title'];
+					$link_target = $link['target'] ? $link['target'] : '_self';
+				?>
+				<a class="button-white" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+				<?php endif; ?>
+				</div>
+			</div>
+			</div>
+			</div>
+		<!-- ./Flex Row -->
         </div>
 	</div>
 
@@ -113,33 +158,50 @@ get_header(''); ?>
 
 	<div class="row">
 		<div class="max-width pad-block-1">
-		<div class="small-12 medium-5 columns pink-back no-pad match-block-1 feature">
-		<div class="feature-content">
-		<div class="shape-right-feature"></div>
-        <h3><?php the_sub_field('title'); ?></h3>
-        <p><?php the_sub_field('description'); ?></p>
-            
-	    <?php 
-			$link = get_sub_field('link');
-			if( $link ): 
-			$link_url = $link['url'];
-			$link_title = $link['title'];
-			$link_target = $link['target'] ? $link['target'] : '_self';
-    	?>
-		<a class="button-gold" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-		<?php endif; ?>
-        </div>
-        </div>
+			<!-- ./Flex Row -->
+			<div class="flex-row">
+			<?php if ( wp_is_mobile() ): ?>
+			<div class="small-12 medium-6 large-5 columns pink-back no-pad feature">
+			<?php else: ?>
+			<div class="small-12 medium-6 large-5 columns pink-back no-pad match-block-1 feature">
+			<?php endif; ?>
+			<div class="space-top"></div>
+			<div class="shape-right-feature"></div>
 
-		<div class="small-12 medium-7 columns no-pad match-block-1 feature">
-		<?php
-			$imageArray = get_sub_field('image');
-			$imageAlt = $imageArray['alt'];
-			$imageTitle = $imageArray['title'];
-			$imageURL = $imageArray['url'];
-			$imageThumbURL = $imageArray['sizes']['large']; ?>	
-			<img class="feature-img" src="<?php echo $imageThumbURL;?>" alt="<?php echo $imageAlt;?>" />	
-        </div>
+			<div class="feature-content">
+				<div class="wrap">
+					<h3><?php the_sub_field('title'); ?></h3>
+					<p><?php the_sub_field('description'); ?></p>
+						
+					<?php 
+						$link = get_sub_field('link');
+						if( $link ): 
+						$link_url = $link['url'];
+						$link_title = $link['title'];
+						$link_target = $link['target'] ? $link['target'] : '_self';
+					?>
+					<a class="button-gold" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+					<?php endif; ?>
+				</div>
+			</div>
+			</div>
+
+			<?php if ( wp_is_mobile() ): ?>
+			<div class="small-12 medium-6 large-7 columns no-pad feature">
+			<?php else: ?>
+			<div class="small-12 medium-6 large-7 columns no-pad match-block-1 feature">
+			<?php endif; ?>
+
+			<?php
+				$imageArray = get_sub_field('image');
+				$imageAlt = $imageArray['alt'];
+				$imageTitle = $imageArray['title'];
+				$imageURL = $imageArray['url'];
+				$imageThumbURL = $imageArray['sizes']['large']; ?>	
+				<img class="feature-img" src="<?php echo $imageThumbURL;?>" alt="<?php echo $imageAlt;?>" />
+				<div class="space-bottom"></div>		
+			</div>
+			<!-- ./ Flex Row -->
         </div>
 	</div>
 
@@ -223,39 +285,61 @@ get_header(''); ?>
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <!-- Slides -->
-        
-		<?php if( have_rows('attraction') ): ?>
-		<?php while( have_rows('attraction') ): the_row(); ?>
-		
-        <div class="swiper-slide">
+	        	        
+            <?php if(get_field('attractions')): ?>
+                <?php $count_team = count(get_field('attractions')); ?>
+                    <?php $team = 0; while(has_sub_field('attractions')): ?>
+                        <?php
+                            $post_object = get_sub_field('article');
+
+                            if( $post_object ): 
+
+                                    // override $post
+                                    $post = $post_object;
+                                    setup_postdata( $post );    
+                                    ?>
 	        
+        <div class="swiper-slide">
+
+			<span class="distance"><?php the_field('distance'); ?></span>
+	        
+	        
+			<div class="pink-back">
 			<div class="small-12 medium-6 columns pink-back no-pad match-block-2">
 				<div class="slide-content">
-	        		<h4><?php the_sub_field('title'); ?></h4>
-					<span>10 min — 800m</span>
-					<p><?php the_sub_field('description'); ?></p>
+					<span><?php the_field('distance'); ?></span>
+	        		<?php the_title( '<h4>', '</h4>' ); ?>
+                    <p><?php echo $excerpt = wp_trim_words( get_the_excerpt(), $num_words = 40, $more = '...' ); ?></p>
+					<a class="button-grey" href="<?php echo get_permalink( $post->ID ); ?>">Read more</a>
 				</div>
 			</div>
 			
 			<div class="small-12 medium-6 columns no-pad match-block-2">
 				<?php
-					$imageArray = get_sub_field('image');
+					$imageArray = get_field('slider_image');
 					$imageAlt = $imageArray['alt'];
 					$imageTitle = $imageArray['title'];
 					$imageURL = $imageArray['url'];
 					$imageThumbURL = $imageArray['sizes']['large']; ?>	
-				<img class="icon-img" src="<?php echo $imageThumbURL;?>" alt="<?php echo $imageAlt;?>" />	
+				<img class="" src="<?php echo $imageThumbURL;?>" alt="<?php echo $imageAlt;?>" />	
 			</div>
-			
+			</div>
+			        
         </div>
-       
-		<?php endwhile; ?>
-		<?php endif; ?>
-		
+        
+                                  <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+                                <?php endif; ?>
+                            <?php $team++; endwhile; ?>
+                        <?php endif; ?>                    
+        
     </div>
 	</div>
+	
+	<div class="swiper-pagination-icon"></div> 
     <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
+    <div class="swiper-pagination">
+    </div>
+	    
 
     <!-- If we need navigation buttons -->
     <div class="swiper-prev"></div>
@@ -269,32 +353,29 @@ get_header(''); ?>
 
 
 <!-- ================================================================================================================ -->
-<!-- NEWS BLOCK HOME -->
+<!-- ARTICLE BLOCK HOME -->
 <!-- ================================================================================================================ -->
 
 <div class="row relative">
 <div class="news-pink-back"></div>
     <div class="max-width news-block-wrap">
 		<div class="small-12 medium-10 medium-centered">
-                <?php
-                        global $wp_query;
-                        $all_posts = $wp_query->posts;
-                            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                            query_posts( array( 
-                           'post_type' => 'post',       
-                           'posts_per_page' => '3',
-                           'paged' => $paged
-                        ) );
-                        ?>
 
-                <?php if ( have_posts() ) : ?>
+            <?php if(get_field('articles_repeater')): ?>
+                <?php $count_team = count(get_field('articles_repeater')); ?>
+                    <?php $team = 0; while(has_sub_field('articles_repeater')): ?>
+                        <?php
+                            $post_object = get_sub_field('article');
 
-                    <?php while ( have_posts() ) : the_post(); ?>
+                            if( $post_object ): 
 
-                    <div class="news-row">
+                                    // override $post
+                                    $post = $post_object;
+                                    setup_postdata( $post );    
+                                    ?>
 
-                        <div class="news-container">
-
+									<div class="news-row">
+									<div class="news-container">
                             		<a class="story" href="<?php the_permalink(); ?>">
 	                                   	<div class="small-12 medium-4 large-4 columns news-col">
                                             <div class="feature-img">
@@ -310,15 +391,14 @@ get_header(''); ?>
                                             </div>                                  
                                          </div> 
                             		</a>                      
-                            
-                        </div>
+                        			</div>
+									</div>         
 
-                    </div>         
-                             
-                    <?php endwhile; ?> 
-                <?php endif; ?>
+                                  <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+                                <?php endif; ?>
+                            <?php $team++; endwhile; ?>
+                        <?php endif; ?>                    
 
-                <?php wp_reset_query(); ?>    	
 			</div>
 	   	<div class="clear"></div>
     </div>
@@ -339,7 +419,7 @@ get_header(''); ?>
 		<div class="small-12 medium-8 medium-centered location">
 			<h3>Location</h3>
 			<p><?php the_field('address', 'option'); ?></p>
-			<a href="tel:<?php the_field('tel', 'option'); ?>"><?php the_field('tel', 'option'); ?></a> | <a href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a>
+
 		</div>
 		<div class="small-12 medium-10 medium-centered map">
 
